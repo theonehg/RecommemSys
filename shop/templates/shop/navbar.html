@@ -103,12 +103,12 @@
         <li class="dropdown">
           {% if request.user.is_authenticated %}
           <a  class="header-wrapicon1 dis-block dropdown-toggle" data-toggle="dropdown">
-            <img src="static/img/icons/icon-header-01.png" class="header-icon1" alt="ICON">
+            <img src="/static/img/icons/icon-header-01.png" class="header-icon1" alt="ICON">
           </a>
           <!-- <span class="linedivide1"></span> -->
 
           <div class="header-wrapicon2">
-            <img src="static/img/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
+            <img src="/static/img/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
             <span class="header-icons-noti">
               {% with totail_items=cart|length %}
                 {% if cart|length > 0 %}
