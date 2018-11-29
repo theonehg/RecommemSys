@@ -103,31 +103,19 @@
           Categories
         </h4>
 
-        <ul>
-          <li class="p-b-9">
-            <a href="#" class="s-text7">
-              Publishing year
-            </a>
-          </li>
+        <ul class="p-b-54">
+            <li class="p-t-4" {% if not category %} class="active"{% endif %}>
+              <a  class="s-text13 active1" href="{% url 'shop:product_list' %}">
+              All </a>
+            </li>
 
-          <li class="p-b-9">
-            <a href="#" class="s-text7">
-              Authors
-            </a>
-          </li>
+             {% for c in categories %}
 
-          <li class="p-b-9">
-            <a href="#" class="s-text7">
-              Publishing company
-            </a>
-          </li>
-
-          <li class="p-b-9">
-            <a href="#" class="s-text7">
-              Types
-            </a>
-          </li>
-        </ul>
+              <li class="p-t-4" {% if category.slug == c.slug %} class="active"{% endif %}>
+                  <a class="s-text13" href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+              </li>
+            {% endfor %}
+            </ul>
       </div>
 
       <div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
