@@ -102,17 +102,20 @@
        <div class="header-icons">
         <li class="dropdown">
           {% if request.user.is_authenticated %}
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #000000">{{ request.user.username }}<b class="caret"></b></a>
-         <span class="linedivide1"></span>
-          <a  class="header-wrapicon1 dis-block">
+        <!--  -->
+          <a  class="header-wrapicon1 dis-block dropdown-toggle" data-toggle="dropdown">
             <img src="static/img/icons/icon-header-01.png" class="header-icon1" alt="ICON">
           </a>
-          <span class="linedivide1"></span>
+          <!-- <span class="linedivide1"></span> -->
 
-          <div class="header-wrapicon2">
+          <a class="header-wrapicon2">
             <img src="static/img/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
-            <span class="header-icons-noti">0</span>
-
+            <span class="header-icons-noti">
+              {% with totail_items=cart|length %}
+                {% if cart|length > 0 %}
+                        {{ cart|length }}
+                {% else %}0{% endif %}
+            {% endwith %}</span>
             <!-- Header cart noti -->
             <div class="header-cart header-dropdown">
               <ul class="header-cart-wrapitem">
@@ -185,9 +188,11 @@
                 </div>
               </div>
             </div>
-          </div>
+          </a>
         <ul class="dropdown-menu">
+          <li><a href="#" style="color: #000000">{{ request.user.username }}</a></li>
           <li><a href="">logout</a></li>
+           
             {% else %}
           <li class="divider"></li>
           <li><a href="#" style="color: #000000">Sign in</a></li>
