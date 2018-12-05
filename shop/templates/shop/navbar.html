@@ -52,8 +52,8 @@
 
           <div class="topbar-language rs1-select2">
             <select class="selection-1" name="time">
-              <option>USD</option>
               <option>VND</option>
+              <option>USD</option>
             </select>
           </div>
         </div>
@@ -107,7 +107,7 @@
           </a>
           <!-- <span class="linedivide1"></span> -->
 
-          <div class="header-wrapicon2">
+          <span class="header-wrapicon2">
             <img src="/static/img/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
             <span class="header-icons-noti">
               {% with totail_items=cart|length %}
@@ -139,7 +139,7 @@
               </ul>
 
               <div class="header-cart-total">
-                Total: $75.00
+               {{ cart.get_total_price }} VND
               </div>
 
               <div class="header-cart-buttons">
@@ -158,7 +158,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </span>
         <ul class="dropdown-menu">
           <li><a href="#" style="color: #000000">{{ request.user.username }}</a></li>
           <li><a href="{% url 'logout' %}">logout</a></li>
