@@ -30,7 +30,7 @@ class Product(models.Model):
     stock = models.PositiveIntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    image = models.ImageField(upload_to='products/', blank=True)
+    image = models.ImageField(upload_to='static/img/', blank=True)
 
     class Meta:
         ordering = ('name', )
@@ -41,3 +41,8 @@ class Product(models.Model):
 
     def get_absolute_url(self):
         return reverse('shop:product_detail', args=[self.id, self.slug])
+
+    def get_recom():   
+        cf = CF(m, 30, 1)
+        cf.fit()
+        # cf.get_recommend_list(UserId)     
