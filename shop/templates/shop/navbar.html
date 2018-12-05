@@ -161,10 +161,10 @@
           </div>
         <ul class="dropdown-menu">
           <li><a href="#" style="color: #000000">{{ request.user.username }}</a></li>
-          <li><a href="">logout</a></li>
+          <li><a href="{% url 'logout' %}">logout</a></li>
             {% else %}
           <li class="divider"></li>
-          <li><a href="#" style="color: #000000">Sign in</a></li>
+          <li><a href="{% url 'login' %}" style="color: #000000">Sign in</a></li>
            <span class="linedivide1"></span>
          <li><a href="#" style="color: #000000">Sign up</a></li>
         </ul>

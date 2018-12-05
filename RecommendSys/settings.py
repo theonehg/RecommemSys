@@ -58,6 +58,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'shop/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -127,3 +128,6 @@ MEDIA_URL = '/media/products/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'shop/media/products')
 
 CART_SESSION_ID = 'cart'
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
