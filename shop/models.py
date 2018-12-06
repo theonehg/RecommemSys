@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-
+from django.contrib.auth.models import User
 
 class Category(models.Model):
     name = models.CharField(max_length=150, db_index=True)
@@ -21,6 +21,7 @@ class Category(models.Model):
 
 
 class Product(models.Model):
+    #  category_id
     category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
     name = models.CharField(max_length=100, db_index=True)
     slug = models.SlugField(max_length=100, db_index=True)
@@ -31,6 +32,14 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     image = models.ImageField(upload_to='static/img/', blank=True)
+    bookAuthor = models.CharField(max_length=100)
+    yearOfPublication = models.PositiveIntegerField(blank=True)
+    Publisher = models.CharField(max_length=100, blank=True)
+    ImageURLS = models.CharField(max_length= 250,blank=False)
+    ImageURLM = models.CharField(max_length=250)
+    ImageURLS = models.CharField(max_length=250)
+    ISBN = models.CharField(max_length=20)
+
 
     class Meta:
         ordering = ('name', )
@@ -42,7 +51,20 @@ class Product(models.Model):
     def get_absolute_url(self):
         return reverse('shop:product_detail', args=[self.id, self.slug])
 
-    def get_recom():   
-        cf = CF(m, 30, 1)
-        cf.fit()
-        # cf.get_recommend_list(UserId)     
+
+
+        
+
+
+class bookRating(models.Model):
+   product_id = models.ForeignKey(Product, on_delete=models.CASCADE) 
+   UserID = models.ForeignKey(
+       User,
+        on_delete=models.CASCADE
+    )
+   bookRating = models.PositiveIntegerField()
+
+    # def __init__(self, arg):
+    #     super(bookRating, self).__init__()
+    #     self.arg = arg
+                        
